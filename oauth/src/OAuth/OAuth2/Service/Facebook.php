@@ -12,13 +12,7 @@ use OAuth\Common\Http\Uri\UriInterface;
 
 class Facebook extends AbstractService
 {
-    /**
-     * Defined scopes
-     *
-     * If you don't think this is scary you should not be allowed on the web at all
-     *
-     * @link https://developers.facebook.com/docs/reference/login/
-     */
+    
     // email scopes
     const SCOPE_EMAIL                         = 'email';
     // extended permissions
@@ -126,12 +120,10 @@ class Facebook extends AbstractService
         return new Uri('https://graph.facebook.com/oauth/access_token');
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    
     protected function parseAccessTokenResponse($responseBody)
     {
-        // Facebook gives us a query string ... Oh wait. JSON is too simple, understand ?
+        
         parse_str($responseBody, $data);
 
         if (null === $data || !is_array($data)) {
